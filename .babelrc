@@ -1,0 +1,7 @@
+{
+  "presets" : ["es2015", "react", "stage-0"],
+  "plugins": ["react-html-attrs","transform-async-to-generator","syntax-async-functions","transform-regenerator", "transform-class-properties", "transform-decorators-legacy",["transform-runtime", {
+      "polyfill": false,
+      "regenerator": true
+    }]]
+}
