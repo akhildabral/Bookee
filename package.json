@@ -1,0 +1,15 @@
+{
+  "name": "BookManager",
+  "version": "1.0.0",
+  "description": "Ebook Management Application",
+  "main": "app/main/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Akhil Dabral",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^1.6.2",
+    "webpack": "^2.3.2"
+  }
+}
