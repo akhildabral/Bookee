@@ -1,4 +1,8 @@
 import electron , {app , BrowserWindow } from 'electron'
+import path from 'path'
+import fs from 'fs'
+
+let debug = true
 
 let mainWindow = null
 
@@ -18,9 +22,10 @@ function initialize(){
             //windowOptions.icon = path.join(__dirname, '/assets/app-icon/png/mainIcon.png')
         }
         mainWindow = new BrowserWindow(windowOptions)
-        mainWindow.loadURL(path.join('file://', __dirname ,'../client/index.html'))
+        console.log(__dirname)
+        mainWindow.loadURL(path.join('file://', __dirname ,'../app/client/index.html'))
         if(debug){
-            mainWindow.webCOntents.openDevTools()
+            mainWindow.webContents.openDevTools()
             mainWindow.maximize()
         }
         mainWindow.on('close',() =>{

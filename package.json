@@ -1,8 +1,8 @@
 {
-  "name": "BookManager",
+  "name": "Bookee",
   "version": "1.0.0",
   "description": "Ebook Management Application",
-  "main": "app/main/index.js",
+  "main": "public/main.js",
   "scripts": {
     "preinstallad": "node preinstall",
     "build": "electron-packager . AXIOS_STUDIO --platform win32 --arch ia32 --ignore node_modules_old --out ./dist/",
