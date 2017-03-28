@@ -1,24 +1,19 @@
 import React, { Component } from 'react'
 import { Router, Route, IndexRoute, hashHistory, browserHistory } from "react-router";
-import AppMain from "../App"
-import LandingPage from '../LandingPage'
-import Workspace from '../Workspace'
+import AppMain from "../containers/AppMain"
+import Workspace from '../containers/Workspace'
+
 //Get Globle Buffer from electron main
 //const Buffer = Electron.remote.getGlobal('Buffer')
-class AppRouter extends Component {
+class Routes extends Component {
   componentWillMount() {
   }
   componentWillUnmount() {
   }
   render() {
     return (
-      <Router history={hashHistory}>
-        <Route path="/" component={AppMain}>
-          <IndexRoute component={Workspace}></IndexRoute>
-          <Route path='landingPage' component={LandingPage}></Route>
-        </Route>
-      </Router>
+       <AppMain><Workspace/></AppMain>
     )
   }
 }
-export default AppRouter
+export default Routes

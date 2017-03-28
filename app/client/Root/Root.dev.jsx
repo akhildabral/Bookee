@@ -1,4 +1,4 @@
-import React, { Component, PropTypes, } from 'react'
+import React, { Component, PropTypes } from 'react'
 import Routes from './Routes'
 //DEV
 //import DevTools from '../DevTools'
@@ -9,7 +9,13 @@ const styles = {
     display: 'flex',
   },
 }
-export default class Root extends Component {
+
+class Root extends Component {
+
+  constructor(props){
+    super(props)
+  }
+
   render() {
     console.log("***************** DEV MODE *************")
     console.log("Store .................")
@@ -19,6 +25,5 @@ export default class Root extends Component {
     )
   }
 }
-Root.propTypes = {
-  store: PropTypes.object.isRequired,
-}
+
+export default Root

@@ -1,9 +1,6 @@
 import React, { Component, } from 'react'
-import { connect } from 'react-redux'
-import Layout from '../components/Layout'
-import { getPathRoot, getWorkflfowDetails } from '../actions/fileActions'
 import ThemeProvider from '../themes/ThemeProvider'
-class App extends Component {
+class AppMain extends Component {
   componentWillMount() {
     //this.props.dispatch(getWorkflfowDetails()) 
 //TODO : Listen to preferences changes or file system changes and update store eccourdingly.. 
@@ -26,12 +23,5 @@ class App extends Component {
     )
   }
 }
-const mapStateToProps = (state, ownProps) => {
-  console.log("STATE ORIGINAL")
-  console.log(state)
-  return {
-    file: state.file,
-    dex: 'true'
-  }
-}
-export default connect(mapStateToProps)(App)
+
+export default AppMain

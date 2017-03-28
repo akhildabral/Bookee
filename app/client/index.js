@@ -1,6 +1,5 @@
 import React from "react"
 import ReactDOM from "react-dom"
-import { Provider } from "react-redux"
 import Root from './Root'
 const electron = window.require('electron');
 const remote = electron.remote;
@@ -9,9 +8,9 @@ import { DragDropContext } from 'react-dnd'
 const DraggableRoot = DragDropContext(HTML5Backend)(Root)
 
 //Inject Devtools if NODE_ENV is developemnt
-if (process.env.NODE_ENV == 'development') {
-    require('electron-react-devtools').install()
-  }
+// if (process.env.NODE_ENV == 'development') {
+//     require('electron-react-devtools').install()
+//   }
 window.onerror = function myErrorHandler(errorMsg, url, lineNumber) {
     console.log("=============> Error occured: " + errorMsg);//or any message
     return false;

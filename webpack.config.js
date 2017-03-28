@@ -88,7 +88,8 @@ module.exports = {
        
         new webpack.optimize.OccurrenceOrderPlugin(),
         new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoErrorsPlugin(),
+        //new webpack.NoErrorsPlugin(),
+        new webpack.NoEmitOnErrorsPlugin()
         // new webpack.optimize.UglifyJsPlugin({
         //     compressor: {
         //         warnings: false
