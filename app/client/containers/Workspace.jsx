@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 
 import PdfRenderer from '../components/PdfRenderer'
+import Sidebar from '../components/Container/Sidebar'
+import Header from '../components/Container/Header'
+import Footer from '../components/Container/Footer'
+import Main from '../components/Container/Main'
 
 import _ from 'lodash'
 
@@ -11,7 +15,6 @@ constructor() {
         this.styles = {}
     }
   componentWillMount(){
-     //this.props.dispatch(getWorkflfowDetails())
      this.styles = getStyles(this.props, this.context);
    }
   
@@ -19,8 +22,9 @@ constructor() {
   
     return (
         <div>
-         <div>Akhil</div>
-         <PdfRenderer/>
+            <Header/>
+            <Main><PdfRenderer/></Main>
+            <Footer/>      
        </div>
 
     )
