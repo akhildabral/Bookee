@@ -4,12 +4,12 @@ var webpackTargetElectronRenderer = require('webpack-target-electron-renderer');
 var CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin;
 var UglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
 var BUILD_DIR = path.resolve(__dirname, './public');
-var CLIENT_DIR = path.resolve(__dirname, './client');
-var APP_DIR = path.resolve(__dirname, './app');
-var COMMON_DIR = path.resolve(__dirname, './common');
-var alias = {
-  common: COMMON_DIR
-};
+var CLIENT_DIR = path.resolve(__dirname, './app/client');
+var APP_DIR = path.resolve(__dirname, './app/main');
+
+// var alias = {
+//   common: COMMON_DIR
+// };
 module.exports = {
     //Change to 'eval' for quick hot reloading, use 'source-map' else.
    // devtool: 'source-map',
@@ -17,9 +17,9 @@ module.exports = {
     devtool: 'eval',
     //devtool : 'inline-source-map',
     
-    debug: 'true',
+    //debug: 'true',
     //entry: ['webpack/hot/dev-server','babel-polyfill',CLIENT_DIR + "/index.js",CLIENT_DIR + "/splash.js",APP_DIR + "/lib/index.js"],
-    entry: {bundle : ['webpack/hot/dev-server','babel-polyfill',CLIENT_DIR + "/index.js",CLIENT_DIR + "/views/splash/splash.js"],index : APP_DIR + "/lib/index.js", welcome : CLIENT_DIR + "/views/welcome/welcome.js"},
+    entry: {bundle : ['webpack/hot/dev-server','babel-polyfill',CLIENT_DIR + "/index.js"],main : APP_DIR + "/index.js"},
     output: {
         path: __dirname + '/public/',
         publicPath: 'http://localhost:8080/client/',
@@ -36,15 +36,16 @@ module.exports = {
         publicPath: 'http://localhost:8080/client/'
     },
     resolve: {
-        alias: alias,
-        extensions: ['', '.ts', '.js', '.json', ',css', '.html', '.jsx']
+         extensions: ['.ts', '.js', '.json', '.css', '.html', '.jsx']
+       // alias: alias,
+       
         // modulesDirectories: ['src', 'src/js', 'web_modules', 'bower_components', 'node_modules']
     },
     module: {
         loaders: [
             {
                 test: /(\.jsx|\.js)$/,
-                include: [APP_DIR, CLIENT_DIR, COMMON_DIR],
+                include: [APP_DIR, CLIENT_DIR],
                 loader: 'babel-loader',
                 exclude: /(node_modules|semantic|semantic-react)/
             },
@@ -85,9 +86,10 @@ module.exports = {
     ],
     plugins: [
        
-        new webpack.optimize.OccurenceOrderPlugin(),
+        new webpack.optimize.OccurrenceOrderPlugin(),
         new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoErrorsPlugin(),
+        //new webpack.NoErrorsPlugin(),
+        new webpack.NoEmitOnErrorsPlugin()
         // new webpack.optimize.UglifyJsPlugin({
         //     compressor: {
         //         warnings: false
@@ -99,5 +101,5 @@ module.exports = {
         //      'process.env.NODE_ENV': JSON.stringify('development')
         // })
     ],
-    catche : true    
+    cache : true    
 }
